@@ -199,4 +199,5 @@ int main()
 	printf("you lost! The correst word was: %s", word);
 	
 	return 0;
-}
+}//TODO: wrong letters list,(idea: do it in the function that checks if there is the letter, if there is not, add it to wrong letters array
+//add congratulations message
