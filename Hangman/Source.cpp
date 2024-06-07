@@ -146,7 +146,7 @@ int main()
 	int count = 0;
 	char ch;
 	int lives = 10;
-	char wrongLetters[MAX_MISSIMPUTS] = {};
+	char wrongLetters[MAX_MISSIMPUTS] = { '\0' };
 	//make empty array to dispaly te length of a guessed word
 	for (int i = 0; word[i] != '\0'; i++)
 	{
@@ -182,18 +182,21 @@ int main()
 			}
 		}
 
-		int i = 0;
+		
 
 		if (!found)
 		{
+
 			lives--;
 		}
+
+		
 
 		system("cls");
 
 	}
 
-	printf("you lost!");
+	printf("you lost! The correst word was: %s", word);
 	
 	return 0;
 }
