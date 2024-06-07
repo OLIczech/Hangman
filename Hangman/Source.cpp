@@ -4,7 +4,9 @@
 #include <string.h>
 #include <time.h>
 
-int lives = 10;
+#define MAX_WORD_LENGTH 20
+#define MAX_MISSIMPUTS 26
+
 
 
 const char* randomWord()
@@ -136,15 +138,62 @@ void asciiArt(int lives)
 
 int main()
 {
-	
-	
+	//random seed
 	time_t t;
 	srand((unsigned)time(&t));
-	for (int i = 0; i < 26; i++)
+	//variables
+	const char* word = randomWord();
+	int count = 0;
+	char ch;
+	int lives = 10;
+	char wrongLetters[MAX_MISSIMPUTS] = {};
+	//make empty array to dispaly te length of a guessed word
+	for (int i = 0; word[i] != '\0'; i++)
 	{
-		printf("%s \n", randomWord());
-		asciiArt(i);
+		count++;
+	}
+	
+	char Guess[MAX_WORD_LENGTH] = { 0 };
+	for (int i = 0; i < count; i++)
+	{
+		Guess[i] = '_';
+	}
+	Guess[count] = '\0';
+
+	while (lives > 0)
+	{
+		
+		if (lives <= 9)
+		{
+			asciiArt(lives);
+		}
+		printf("%s\n", Guess);
+		printf("%s\n", word);
+		printf("type lowercase character to guess, any other imput will cost you lives:\n");
+		scanf(" %c", &ch);
+
+		int found = 0;
+		for (int i = 0; i < count; i++)
+		{
+			if (word[i] == ch)
+			{
+				Guess[i] = ch;
+				found = 1;
+			}
+		}
+
+		int i = 0;
+
+		if (!found)
+		{
+			lives--;
+		}
+
+		system("cls");
+
 	}
 
+	printf("you lost!");
+	
 	return 0;
 }
