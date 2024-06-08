@@ -207,14 +207,18 @@ int main()
 		//when the random word and guess array mach, print congratulations message
 		if (strcmp(word, Guess) == 0)
 		{
-			printf("congratulations! you guessed the word correctly. The word was: ");
+			printf("congratulations! you guessed the word correctly. The word was: %s", word);
 			break;
+		}
+		if (lives == 0)
+		{
+			//game over message
+			asciiArt(lives);
+			printf("you lost! The correst word was: %s", word);
 		}
 
 	}
-	//game over message
-	asciiArt(lives);
-	printf("you lost! The correst word was: %s", word);
+	
 	
 	return 0;
 }
