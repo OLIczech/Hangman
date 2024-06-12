@@ -12,7 +12,7 @@
 //chose a random word for player to guess
 const char* randomWord()
 {
-	int random = rand() % (6);
+	int random = rand() % (11);
 
 	switch (random)
 	{
@@ -28,6 +28,16 @@ const char* randomWord()
 		return "uzlabina";
 	case 5:
 		return "hardware";
+	case 6:
+		return "gaurova";
+	case 7:
+		return "discord";
+	case 8:
+		return "kitten";
+	case 9:
+		return "ubuntu";
+	case 10: 
+		return "azure";
 	}
 
 }
